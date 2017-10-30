@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+body {
+background-color: bisque;
+font-family: Helvetica;
+}
+
+#main {
+width: 80%;
+max-width: 950px;
+border: 1px white solid;
+margin: auto;
+padding: 10px;
+background-color: pink;
+border-radius: 9px;
+}
+
+#header {
+margin-top: 0;
+border: 2px solid green;
+padding: 2px;
+height: 250px;
+background: green;
+background-image: url("five.jpg");
+color: cadetblue;
+}
+
+label {
+display: block;
+}
+
+input {
+width: 20px;
+margin-left: 20px;
+}
+
+h2 {
+clear: both;
+padding-top: 20px;
+}
+
+button {
+width: 100px;
+margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+<h1>Are You Smarter Than A 5th Grader?</h1>
+</div>
+<form id="form1">
+<fieldset>
+<h2>Who was the 9th President of the United States?</h2>
+<label for="var_string"><input type="radio" name="variable" value="20" />William Harrison.</label>
+<label for="var_join"><input type="radio" name="variable" value="0" />Jimmy Carter.</label>
+<label for="var_info"><input type="radio" name="variable" value="0" />Richard Nixon</label>
+<label for="var_condition"><input type="radio" name="variable" value="0" />Lyndon B. Johnson.</label>
+
+<h2>What planet is closest to the sun?</h2>
+<label for="sub_string"><input type="radio" name="sub" value="20" />Earth.</label>
+<label for="sub_join"><input type="radio" name="sub" value="0" />Uranus.</label>
+<label for="sub_info"><input type="radio" name="sub" value="0" />Mercury.</label>
+<label for="sub_condition"><input type="radio" name="sub" value="0" />Pluto.</label>
+
+<h2>How many sides does a heptagon have?</h2>
+<label for="cat_string"><input type="radio" name="con" value="0" />9.</label>
+<label for="cat_join"><input type="radio" name="con" value="20" />7.</label>
+<label for="cat_info"><input type="radio" name="con" value="0" />8.</label>
+<label for="cat_condition"><input type="radio" name="con" value="0" />6.</label>
+
+<h2>"Carefully" is an example of what type of word?</h2>
+<label for="if_string"><input type="radio" name="ifstate" value="0" />Noun.</label>
+<label for="if_join"><input type="radio" name="ifstate" value="0" />Verb.</label>
+<label for="if_info"><input type="radio" name="ifstate" value="0" />Adjective.</label>
+<label for="if_condition"><input type="radio" name="ifstate" value="20" />Adverb.</label>
+
+<h2>Where is the Grand Canyon located?</h2>
+<label for="why_string"><input type="radio" name="why" value="0" />New Mexico.</label>
+<label for="why_join"><input type="radio" name="why" value="0" />Nevada.</label>
+<label for="why_info"><input type="radio" name="why" value="0" />Utah.</label>
+<label for="why_condition"><input type="radio" name="why" value="20" />Arizona.</label>
+
+<button type="submit" value="Submit">Submit</button>
+</fieldset>
+</form>
+<p>Your grade is: <span id="grade">__</span></p>
+<p id="grade2"></p>
+  
+</div>
+<script>
+document.getElementById("form1").onsubmit=function() {
+       variable = parseInt(document.querySelector('input[name = "variable"]:checked').value);
+	   sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
+	   con = parseInt(document.querySelector('input[name = "con"]:checked').value);
+	   ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
+	   why = parseInt(document.querySelector('input[name = "why"]:checked').value);
+	   
+	   result = variable + sub + con + ifstate + why;
+	   
+	document.getElementById("grade").innerHTML = result;
+
+	grading = [
+	   {score:0,feedback:"Did you actually try?", image: "steve.gif"},
+	   {score:20,feedback:"A 5th grader is smarter.", image: "sassy.gif"},
+	   {score:40,feedback:"I would guess you didn't study...", image: "joey.gif"},
+	   {score:60,feedback:"Oh! You almost had it!", image: "true.gif"},
+	   {score:80,feedback:"Oh hey! Look at you go! Congrats!", image: "sloth.gif"},
+	   {score:100,feedback:"100! You are smarter than a 5th grader!", image: "yay.gif"},
+	   ];
+	  
+for(i=0; i<grading.length; i++) {
+    if(result == grading[i].score) {
+    result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "' width='300'  />";
+	  }
+	  }
+
+	document.getElementById("grade2").innerHTML = result2; 
+
+	   
+
+
+return false;
+} 
+
+</script>
+</body>
+</html>
+
